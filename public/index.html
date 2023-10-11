@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo ankit</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Dark Mode Button -->
+<button id="darkModeButton">🌙</button>
+
+
+<br /><br />
+<h3 align="center">Aduit report form</h3>
+<br /><br />
+
+<label for="Barrier Type">Barrier Type</label><br>
+<input type="text" id="BarrierType" name="BarrierType" placeholder="Type" required="" class="form-control" value="">
+
+<br>
+<label for="Barrier Test">Barrier Test</label><br>
+<input type="text" id="BarrierTest" name="BarrierTest" placeholder="Ex: Keyboeard" required="" class="form-control" value="">
+
+<br>
+<label for="Page Title">Page Title</label><br>
+<input type="text" id="PageTitle" name="PageTitle" placeholder="Ex: Page Title" required="" class="form-control">
+
+<br>
+<label for="URL">URL</label><br>
+<input type="url" id="url" name="URL" placeholder="Ex: Url" required="" class="form-control">
+
+<label for="Barrier Summary">Barrier Summary</label>
+<input list="result" type="text" name="BarrierSummary" id="search" placeholder="Fill Barrier Summary" class="form-control" />
+
+<!-- Use datalist for suggestions -->
+<datalist id="result">
+</datalist>
+
+
+
+<br>
+<label for="Code Snippet">Code Snippet</label><br>
+<input type="text" id="CodeSnippet" name="CodeSnippet" placeholder="Ex: Any suggestions" required="" class="form-control">
+
+<br>
+<label for="Severity">Severity</label><br>
+<input type="text" id="Severity" name="Severity" placeholder="Ex: High" required="" class="form-control">
+
+<br>
+<label for="WCAG Guideline">WCAG Guideline</label><br>
+<input type="text" id="WcagGuideline" name="WcagGuideline" placeholder="Ex: 2.4.7 Focus Visible (Level AA)" required="" class="form-control">
+
+<br>
+<label for="Section 508">Section 508</label><br>
+<input type="text" id="Section" name="Section" placeholder="Ex: Fail" required="" class="form-control">
+
+<br>
+<label for="Platform">Platform</label><br>
+<input type="text" id="Platform" name="Platform" placeholder="Ex: Win / Mac" required="" class="form-control">
+
+<br>
+<label for="Users Affected">Users Affected</label><br>
+<input type="text" id="UsersAffected" name="UsersAffected" placeholder="Ex: Blind" required="" class="form-control">
+
+<br>
+<label for="Steps to Reproduce">Steps to Reproduce</label><br>
+<input type="text" id="StepstoReproduce" name="StepstoReproduce" placeholder="Give Steps" required="" class="form-control">
+
+<br>
+<label for="Actual Result">Actual Result</label><br>
+<input type="text" id="ActualResult" name="ActualResult" placeholder="Write Actual result" required="" class="form-control">
+
+<br>
+<label for="Expected Result">Expected Result</label><br>
+<input type="text" id="ExpectedResult" name="ExpectedResult" placeholder="Write Expected result" required="" class="form-control">
+
+<br>
+<label for="Recommendation">Recommendation</label><br>
+<input type="text" id="Recommendation" name="Recommendation" placeholder="Write Recommendation" required="" class="form-control">
+
+<br>
+<label for="Instances/ Observation">Instances/ Observation</label><br>
+<input type="text" id="Observation" name="Observation" placeholder="Write Recommendation" required="" class="form-control">
+
+<br>
+<br>
+<input type="submit" value="Submit">
+</body>
+</html>
+
+<script>
+$(document).ready(function(){
+    $.ajaxSetup({ cache: false });
+    $('#search').on('input', function(e){
+        var searchField = $('#search').val();
+        var expression = new RegExp(searchField, "i");
+
+        // Clear previous results
+        $("#result").html('');
+
+        $.getJSON('WCAG-issue-Library.json', function(data) {
+            data.forEach((value) => {
+                if (value.Barrier_Summary.search(expression) != -1) {
+                    $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
+
+                    // Automatically fill other form fields when a suggestion is clicked
+                    $('#BarrierTest').val(value.Barrier_Test);
+                    $('#BarrierType').val(value.Barrier_Type);
+                    $('#Severity').val(value.Severity);
+                    $('#WcagGuideline').val(value.WCAG_Guideline);
+                    $('#Section').val(value.Section);
+                    $('#Platform').val(value.Platform);
+                    $('#UsersAffected').val(value.Users_Affected);
+                    $('#ActualResult').val(value.Actual_Result);
+                    $('#ExpectedResult').val(value.Expected_Result);
+                    $('#Recommendation').val(value.Recommendation);
+                    
+                }
+            });
+        });
+    });
+
+    // Clear suggestions when an option is clicked
+    $('#result').on('click', 'option', function() {
+        $("#result").html('');
+    });
+});
+
+
+
+
+
+    // Dark Mode Button Click Handler
+$('#darkModeButton').click(function () {
+    $('body').toggleClass('dark-mode');
+    });
+</script>
