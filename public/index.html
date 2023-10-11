@@ -100,7 +100,7 @@ $(document).ready(function(){
         // Clear previous results
         $("#result").html('');
 
-        $.getJSON('WCAG-issue-Library.json', function(data) {
+        $.getJSON('data/WCAG-issue-Library.json', function(data) {
             data.forEach((value) => {
                 if (value.Barrier_Summary.search(expression) != -1) {
                     $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
