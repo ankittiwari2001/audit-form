@@ -86,3 +86,25 @@ label {
 .form-control{
   width: 40%;
 }
+
+textarea.form-control {
+  height: 150px; /* Adjust this value as needed */
+}
+
+#clearFieldsButton {
+  position: fixed;
+  top: 80px; /* Adjust this value as needed to position it below the "Dark Mode" button */
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 10px 15px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+#clearFieldsButton:hover {
+  background-color: #45a049;
+}

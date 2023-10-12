@@ -41,7 +41,7 @@
   {
     "Barrier_Type": "Global",
     "Barrier_Test": "Screen Reader",
-    "Barrier_Summary": "Decorative image has a description",
+    "Barrier_Summary": "Decorative svg has a description",
     "Severity": "Low",
     "WCAG_Guideline": "1.1.1 Non-text Content (Level A)",
     "Section": "Fail",
@@ -742,19 +742,6 @@
   },
   {
     "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fail of border",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of the border of the input field \"Name of Area to be Served\" and its background color is less than 3:1.\n \n Element has insufficient color contrast of 1.1:1 (foreground color: #FFFFFF and background color: #E9F4FC).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of the border of the input field \"Name of Area to be Served\" and its background color is at least 3:1.",
-    "Recommendation": "Make sure that the contrast ratio between the border of the input field \"Name of Area to be Served\" and its background is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Unique",
     "Barrier_Test": "Screen Reader",
     "Barrier_Summary": "Error message not announced by screen reader",
     "Severity": "Medium",
@@ -885,19 +872,6 @@
   },
   {
     "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fail of border",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac/ iOS/ Android",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is less than 3:1.\n \n Element has insufficient color contrast of 1.2:1 (foreground color: #DDDDDD and background color: #EAF2FA).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is at least 3:1.",
-    "Recommendation": "Make sure that the contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Unique",
     "Barrier_Test": "Screen Reader",
     "Barrier_Summary": "Required form fields not announced by the screen reader",
     "Severity": "Low",
@@ -947,19 +921,6 @@
     "Actual_Result": "Screen reader doesn't announce the content of the image of text \"Help Reduce Mercury Pollution\".",
     "Expected_Result": "The screen reader should read the text provided on the image when it is reached. If text is inserted as an image without a description, some users won't be able to read it.",
     "Recommendation": "Use one of the following techniques:\n1. Instead of inserting the text as an image, use HTML tags and CSS to visually style the text.\n2. Include the image description below the image in a <details> tag which can be expanded or collapsed by the user. Make sure the image it's properly associated with the element.\n3. Provide a visually hidden text to the image and add alt=\"\". 4. Include the content of the image as an \"alt\" attribute. Resources:\nImages of text:\nhttps://www.w3.org/WAI/tutorials/images/textual/"
-  },
-  {
-    "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fail of border",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac/ iOS/ Android",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is less than 3:1.\n \n Element has insufficient color contrast of 1.2:1 (foreground color: #E1E1E1 and background color: #EFF7F3).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is at least 3:1.",
-    "Recommendation": "Make sure that the contrast ratio between the foreground color of the border of the input fields \"First Name\", \"Last Name\", etc and their background color is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
   },
   {
     "Barrier_Type": "Unique",
@@ -1120,19 +1081,6 @@
   {
     "Barrier_Type": "Global",
     "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fails for the border of input fields",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac/ iOS",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of border of input field \"Page\" and its background color is less than 3.0:1.\n \n Element has insufficient color contrast of 1.4:1 (foreground color: #C9D2DB and background color: #F2F5F8).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of border of input field \"Page\" and its background color is at least 3.0:1.",
-    "Recommendation": "Ensure that the contrast ratio between the element and its background is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Global",
-    "Barrier_Test": "Color Contrast",
     "Barrier_Summary": "Color contrast fails",
     "Severity": "Medium",
     "WCAG_Guideline": "1.4.3 Contrast (Minimum) (Level AA)",
@@ -1142,32 +1090,6 @@
     "Actual_Result": "Contrast ratio between the foreground color of text \"Check your understanding 9 of 13\" and its background color is less than 4.5:1.\n \n Element has insufficient color contrast of 4.3:1 (foreground color: #228522 and background color: #F5F5F5).",
     "Expected_Result": "Ensure that the contrast ratio between the foreground color of text \"Check your understanding 9 of 13\" and its background color is at least than 4.5:1.",
     "Recommendation": "Ensure that the contrast ratio between the element and its background is of at least 4.5:1.\n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n Resources:\n Understanding contrast (minimum):\n https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html\n \n Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text):\n https://www.w3.org/TR/WCAG20-TECHS/G18.html\n \n Contrast (minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Global",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fails for the border of input fields",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac/ iOS",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of border of input field \"Search Book Content\" and its background color is less than 3.0:1.\n \n Element has insufficient color contrast of 1.1:1 (foreground color: #F2F5F8 and background color: #FFFFFF).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of border of input field \"Search Book Content\" and its background color is at least 3.0:1.",
-    "Recommendation": "Ensure that the contrast ratio between the element and its background is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Global",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Color contrast fails for the border of input fields",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.11 Non-text Contrast (Level AA 2.1 only)",
-    "Section": "NA",
-    "Platform": "Win/ Mac/ iOS",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Contrast ratio between the foreground color of border of input field \"Issue description (optional)\" and its background color is less than 3.0:1.\n \n Element has insufficient color contrast of 1.7:1 (foreground color: #BBC5D0 and background color: #FFFFFF).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of border of input field \"Issue description (optional)\" and its background color is at least 3.0:1.",
-    "Recommendation": "Ensure that the contrast ratio between the element and its background is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
   },
   {
     "Barrier_Type": "Global",
@@ -1311,19 +1233,6 @@
     "Actual_Result": "Contrast ratio between the foreground color of audio slider and its background color is less than 3.0:1.\n \n Element has insufficient color contrast of 1.1:1 (foreground color: #F2F2F2 and background color: #FFFFFF).",
     "Expected_Result": "Ensure that the contrast ratio between the foreground color of audio slider and its background color is at least 3.0:1.",
     "Recommendation": "Ensure that the contrast ratio between the element and its background is of at least 3.0:1. \n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n \n Resources:\n Non-text contrast:\n https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html\n \n Contrast (Minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Global",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Insufficient color contrast",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.3 Contrast (Minimum) (Level AA)",
-    "Section": "Fail",
-    "Platform": "Win/ Mac/ iOS",
-    "Users_Affected": "blind",
-    "Actual_Result": "Color contrast ratio between the text \"What were the roots and significance...\" and its background is less than 4.5:1.\n \n Element has insufficient color contrast of 3.3:1 (foreground color: #FFFFFF and background color: #F15C44).",
-    "Expected_Result": "Ensure that the color contrast ratio between the text \"What were the roots and significance...\" and its background should be at least 4.5:1.",
-    "Recommendation": "Ensure that the contrast ratio between the text \"What were the roots and significance...\" and its background is of at least 4.5:1.\n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n Resources:\n Understanding contrast (minimum):\n https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html\n \n Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text):\n https://www.w3.org/TR/WCAG20-TECHS/G18.html\n \n Contrast (minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
   },
   {
     "Barrier_Type": "Unique",
@@ -1779,45 +1688,6 @@
     "Actual_Result": "Screen reader is announcing the text \"Access and Equal Education Opportunity for Students\" incorrectly as \"application\".\n \n Note: Instances of this issue were discovered. Please refer to the screenshots for details.",
     "Expected_Result": "Ensure that the screen reader announces the text \"Access and Equal Education Opportunity for Students\" correctly as plain text.",
     "Recommendation": "Remove the role=\"application\" attribute from inside the <div class=\"redactor-box\">"
-  },
-  {
-    "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Insufficient color contrast",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.3 Contrast (Minimum) (Level AA)",
-    "Section": "Fail",
-    "Platform": "Win/ Mac/ iOS/ Android",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Color contrast ratio between the foreground color of element \"Department name\" and its background is less than 4.5:1.\n \n Element has insufficient color contrast of 4.2:1 (foreground color: #777777 and background color: #F8F8F8).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of element \"Department name\" and its background color should at least 4.5:1.",
-    "Recommendation": "Make sure that the contrast ratio between the element and its background is of at least 4.5:1.\n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n Resources:\n Understanding contrast (minimum):\n https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html\n \n Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text):\n https://www.w3.org/TR/WCAG20-TECHS/G18.html\n \n Contrast (minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Insufficient color contrast",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.3 Contrast (Minimum) (Level AA)",
-    "Section": "Fail",
-    "Platform": "Win/ Mac/ iOS/ Android",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Color contrast ratio between the foreground color of element \"Abikoye, John\" and its background is less than 4.5:1.\n \n Element has insufficient color contrast of 3.8:1 (foreground color: #007BFF and background color: #FBFBFB).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of elements \"Abikoye, John\" and its background color should at least 4.5:1.",
-    "Recommendation": "Make sure that the contrast ratio between the element and its background is of at least 4.5:1.\n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n Resources:\n Understanding contrast (minimum):\n https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html\n \n Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text):\n https://www.w3.org/TR/WCAG20-TECHS/G18.html\n \n Contrast (minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
-  },
-  {
-    "Barrier_Type": "Unique",
-    "Barrier_Test": "Color Contrast",
-    "Barrier_Summary": "Insufficient color contrast",
-    "Severity": "Medium",
-    "WCAG_Guideline": "1.4.3 Contrast (Minimum) (Level AA)",
-    "Section": "Fail",
-    "Platform": "Win/ Mac/ iOS/ Android",
-    "Users_Affected": "color blindness, low vision",
-    "Actual_Result": "Color contrast ratio between the foreground color of element \"johnolugbenga.abikoye@bcc.cuny.edu\" and its background is less than 4.5:1.\n \n Element has insufficient color contrast of 4.1:1 (foreground color: #007BFF and background color: #FFFFFF).",
-    "Expected_Result": "Ensure that the contrast ratio between the foreground color of elements \"johnolugbenga.abikoye@bcc.cuny.edu\" and its background color should at least 4.5:1.",
-    "Recommendation": "Make sure that the contrast ratio between the element and its background is of at least 4.5:1.\n \n For color compliant options:\n https://contrast-finder.tanaguru.com/\n http://colorsafe.co/\n \n Resources:\n Understanding contrast (minimum):\n https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html\n \n Ensuring that a contrast ratio of at least 4.5:1 exists between text (and images of text):\n https://www.w3.org/TR/WCAG20-TECHS/G18.html\n \n Contrast (minimum):\n https://www.w3.org/WAI/GL/low-vision-a11y-tf/wiki/Contrast_(Minimum)\n \n Color contrast analyser:\n https://www.tpgi.com/color-contrast-checker/"
   },
   {
     "Barrier_Type": "Unique",
