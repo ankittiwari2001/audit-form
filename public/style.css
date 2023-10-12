@@ -1,141 +1,69 @@
-input[type=text], select {
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0px;
-    margin-left: 30%;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  input[type=submit] {
-    width: 10%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    margin-left: 30%;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
-  
-  div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-    
-  }
-  h2{
-    margin-left: 45%;
-  }
-  input[type=file] {
-    margin-top: 5px;
-    margin-left: 30%;
-    margin-bottom: 5px;
-  }
- label {
-    text-align:center;
-    margin-left: 30%;
-}
-input[type=date], select {
-  width: 8%;
+/* General styles for input elements */
+input[type="text"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+  width: 40%;
   padding: 12px 20px;
-  margin: 8px 0px;
+  margin: 8px 0;
   margin-left: 30%;
   display: inline-block;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
 }
-input[type=button] {
-  margin-left: 65%;
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  /* margin:0 0.2em 0; */
-  border-radius:0.12em;
-  box-sizing: border-box;
-  text-decoration:none;
-  font-family:'Roboto',sans-serif;
-  font-weight:300;
-  color:#000000;
-  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-  background-color:#FFFFFF;
-  text-align:center;
-  transition: all 0.15s;
-  }
 
+/* Button styles */
+input[type="submit"],
+input[type="button"] {
+  width: 10%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  margin-left: 30%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-input[type=button]:hover {
+input[type="submit"]:hover,
+input[type="button"]:hover {
   background-color: #45a049;
 }
 
-#submissionMsg{
-  margin-left:40%;
-  margin-top: 20%;
+/* Container styles */
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
 }
-#NewRespo{
-  margin-left:51%;
-  display:inline-block;
-  padding:0.46em 1.6em;
-  border:0.1em solid #000000;
-  color:#000000;
-  text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-  background-color:#FFFFFF;
-  text-align:center;
-  transition: all 0.15s;    
-}
-#NewRespo:hover {
-  background-color: #19711d;
 
+/* Heading styles */
+h2 {
+  margin-left: 45%;
 }
-.list-group{
+
+/* Additional styles */
+input[type="file"] {
+  margin-top: 5px;
+  margin-left: 30%;
+  margin-bottom: 5px;
+}
+
+label {
+  text-align: center;
   margin-left: 30%;
 }
-#result {
-  position: absolute;
-  width: 100%;
-  max-width:870px;
-  cursor: pointer;
-  overflow-y: auto;
-  max-height: 400px;
-  box-sizing: border-box;
-  z-index: 1001;
- }
- .link-class:hover{
-  background-color:#f1f1f1;
- }
- #result2 {
-  position: absolute;
-  width: 100%;
-  max-width:870px;
-  cursor: pointer;
-  overflow-y: auto;
-  max-height: 400px;
-  box-sizing: border-box;
-  z-index: 1001;
- }
- input[type=url], select {
-  width: 40%;
-  padding: 12px 20px;
-  margin: 8px 0px;
-  margin-left: 30%;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+
 /* Dark Mode Styles */
 .dark-mode {
   background-color: #121212;
   color: #ffffff;
 }
+
 /* Dark Mode Button Styles */
 #darkModeButton {
   position: fixed;
@@ -155,25 +83,6 @@ input[type=button]:hover {
   background-color: #0056b3;
 }
 
-
-
-
-
-/* Add CSS to style the dropdown list */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content.option-open {
-  display: block;
+.form-control{
+  width: 40%;
 }
