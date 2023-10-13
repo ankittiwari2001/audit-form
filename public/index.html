@@ -20,6 +20,8 @@
     <br /><br />
     <h3 align="center">Audit report form</h3>
     <br /><br />
+
+    <form action="https://script.google.com/macros/s/AKfycbzsipA82E22G2vCJ0hczuAFiGVG_naNIYLDPy7yCXbRoeVKU9R_aS-hsfueWTuMeGel/exec" method="post">
     <label for="Barrier Summary">Barrier Summary</label>
     <input list="result" type="text" name="BarrierSummary" id="search" placeholder="start typing to autofill" class="form-control" />
     
@@ -100,8 +102,8 @@
 
     <br>
     <label for="Steps to Reproduce">Steps to Reproduce</label><br>
-    <input type="text" id="StepstoReproduce" name="StepstoReproduce" placeholder="Give Steps" required=""
-        class="form-control">
+    <textarea type="text" id="StepstoReproduce" name="StepstoReproduce" placeholder="Give Steps" required=""
+        class="form-control"></textarea>
 
     <br>
     <label for="Actual Result">Actual Result</label><br>
@@ -120,10 +122,30 @@
     <br>
     <label for="Instances/ Observation">Instances/ Observation</label><br>
     <textarea id="Observation" name="Observation" placeholder="Mention instances where the issue occurs more than once" required="" class="form-control"></textarea>
+    
+    <br>
+    <label for="UserImpact">User Impact</label><br>
+    <input type="text" id="UserImpact" name="UserImpact" placeholder="Ex: User impact details" class="form-control">
 
     <br>
+    <label for="ScreenshotVideo">Screenshot/Video</label><br>
+    <input type="file" id="ScreenshotVideo" name="ScreenshotVideo" accept="image/*, video/*" class="form-control">
+
+    <br>
+    <label for="ScreencastURL">Screenshot (Screencast URL)</label><br>
+    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control">
+
+    <label for="BarrierSource">Barrier Source</label><br>
+    <select id="BarrierSource" name="BarrierSource" class="form-control">
+        <option value="3rd Party">3rd Party</option>
+        <option value="Native">Native</option>
+    </select>
+
+
+
     <br>
     <input type="submit" value="Submit">
+</form>
 </body>
 
 </html>
@@ -168,18 +190,10 @@ $(document).ready(function(){
 });
 
 
-
-
-
-    // Dark Mode Button Click Handler
+// Dark Mode Button Click Handler
 $('#darkModeButton').click(function () {
     $('body').toggleClass('dark-mode');
     });
-
-
-
-
-
 
 
 // Function to clear all input fields
@@ -200,13 +214,14 @@ function clearFields() {
   document.getElementById("ExpectedResult").value = "";
   document.getElementById("Recommendation").value = "";
   document.getElementById("Observation").value = "";
+  document.getElementById("UserImpact").value = "";
+  document.getElementById("ScreenshotVideo").value = "";
+  document.getElementById("ScreencastURL").value = "";
+  document.getElementById("BarrierSource").value = "";
 }
 
 // Attach the clearFields function to the "Clear All Fields" button
 document.getElementById("clearFieldsButton").addEventListener("click", clearFields);
-
-
-
 
 
 
