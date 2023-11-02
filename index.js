@@ -140,7 +140,7 @@ authorize()
 
 
 const app = express();
-const port = process.env.PORT || 4000; // You can change the port if needed
+const port = process.env.PORT || 3000; // You can change the port if needed
 
 // Serve static files (CSS, images, etc.) from a "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
