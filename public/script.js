@@ -1,17 +1,10 @@
-// Filtering and autofilling code starts from here 
+// ------------------------ Filtering and autofilling code starts from here ------------------------ //
+
 $(document).ready(function() {
   $.ajaxSetup({ cache: false });
 
-<<<<<<< HEAD
   // Define a variable to store the JSON data
   var jsonData = null;
-=======
-
-    $.ajaxSetup({ cache: false });
-    $('#search').on('input', function(e){
-        var searchField = $('#search').val();
-        var expression = new RegExp(searchField, "i");
->>>>>>> 75cb10ea57bb053436b7ae5d5006af3a5fb47e8a
 
   // Function to filter Barrier Summaries based on the selected WCAG guideline
   function filterBarrierSummaries(selectedGuideline) {
@@ -198,3 +191,11 @@ scrollButton.addEventListener("click", function () {
 });
 
 
+$(document).ready(function(){
+  // Function to clear all input fields
+  $("#clearFieldsButton").on('click', () => {
+    document.forms[0].reset();
+    let clearToastEle=$("#form-clear-toast");
+    let clearToast=new bootstrap.Toast(clearToastEle);
+    clearToast.show();
+    }); })
