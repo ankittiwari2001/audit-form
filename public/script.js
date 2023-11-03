@@ -1,40 +1,118 @@
+// Filtering and autofilling code starts from here 
+$(document).ready(function() {
+  $.ajaxSetup({ cache: false });
 
-$(document).ready(function(){
-    $.ajaxSetup({ cache: false });
-    $('#search').on('input', function(e){
-        var searchField = $('#search').val();
-        var expression = new RegExp(searchField, "i");
+  // Define a variable to store the JSON data
+  var jsonData = null;
 
-        // Clear previous results
-        $("#result").html('');
+  // Function to filter Barrier Summaries based on the selected WCAG guideline
+  function filterBarrierSummaries(selectedGuideline) {
+      $('#result').html('');
+      jsonData.forEach((value) => {
+          if (value.WCAG_Guideline === selectedGuideline) {
+              $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
+          }
+      });
+  }
 
-        $.getJSON('data/WCAG-issue-Library.json', function(data) {
-            data.forEach((value) => {
-                if (value.Barrier_Summary.search(expression) != -1) {
-                    $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
+  // Function to populate unique WCAG guideline options
+  function populateUniqueWcagGuidelines() {
+      $('#wcagOptions').html('');
+      var uniqueWcagGuidelines = [];
+      jsonData.forEach((value) => {
+          if (!uniqueWcagGuidelines.includes(value.WCAG_Guideline)) {
+              uniqueWcagGuidelines.push(value.WCAG_Guideline);
+              $('#wcagOptions').append(`<option value="${value.WCAG_Guideline}" class="list-group-item link-class">${value.WCAG_Guideline}</option>`);
+          }
+      });
+  }
 
-                    // Automatically fill other form fields when a suggestion is clicked
-                    $('#BarrierTest').val(value.Barrier_Test);
-                    $('#BarrierType').val(value.Barrier_Type);
-                    $('#Severity').val(value.Severity);
-                    $('#WcagGuideline').val(value.WCAG_Guideline);
-                    $('#Section').val(value.Section);
-                    $('#Platform').val(value.Platform);
-                    $('#UsersAffected').val(value.Users_Affected);
-                    $('#ActualResult').val(value.Actual_Result);
-                    $('#ExpectedResult').val(value.Expected_Result);
-                    $('#Recommendation').val(value.Recommendation);
-                    
-                }
-            });
-        });
-    });
+  // Fetch JSON data from the library
+  $.getJSON('data/WCAG-issue-Library.json', function(data) {
+      jsonData = data;
+      populateUniqueWcagGuidelines();
+  });
 
-    // Clear suggestions when an option is clicked
-    $('#result').on('click', 'option', function() {
-        $("#result").html('');
-    });
+  // Event handler for the "search" input field
+  $('#search').on('input', function(e) {
+      var searchField = $(this).val();
+      var expression = new RegExp(searchField, "i");
+      $('#result').html('');
+      jsonData.forEach((value) => {
+          if (value.Barrier_Summary.search(expression) !== -1) {
+              $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
+              $('#WcagGuideline').val(value.WCAG_Guideline);
+          }
+      });
+  });
+
+  // Event handler for the "WcagGuideline" input field
+  $('#WcagGuideline').on('change', function() {
+      var selectedGuideline = $(this).val();
+      filterBarrierSummaries(selectedGuideline);
+  });
+
+  // Clear suggestions when an option is clicked
+  $('#result').on('click', 'option', function() {
+      $("#result").html('');
+  });
 });
+
+$(document).ready(function() {
+  $.ajaxSetup({ cache: false });
+
+  // Define a variable to store the JSON data
+  var jsonData = null;
+
+  // Function to populate unique WCAG guideline options
+  function populateUniqueWcagGuidelines() {
+      $('#wcagOptions').html('');
+      var uniqueWcagGuidelines = [];
+      jsonData.forEach((value) => {
+          if (!uniqueWcagGuidelines.includes(value.WCAG_Guideline)) {
+              uniqueWcagGuidelines.push(value.WCAG_Guideline);
+              $('#wcagOptions').append(`<option value="${value.WCAG_Guideline}" class="list-group-item link-class">${value.WCAG_Guideline}</option>`);
+          }
+      });
+  }
+
+  // Function to autofill other form fields based on the selected Barrier Summary
+  function autofillFields(selectedBarrierSummary) {
+      jsonData.forEach((value) => {
+          if (value.Barrier_Summary === selectedBarrierSummary) {
+              $('#BarrierTest').val(value.Barrier_Test);
+              $('#BarrierType').val(value.Barrier_Type);
+              $('#Severity').val(value.Severity);
+              $('#WcagGuideline').val(value.WCAG_Guideline);
+              $('#Section').val(value.Section);
+              $('#Platform').val(value.Platform);
+              $('#UsersAffected').val(value.Users_Affected);
+              $('#ActualResult').val(value.Actual_Result);
+              $('#ExpectedResult').val(value.Expected_Result);
+              $('#Recommendation').val(value.Recommendation);
+          }
+      });
+  }
+
+  // Fetch JSON data from the library
+  $.getJSON('data/WCAG-issue-Library.json', function(data) {
+      jsonData = data;
+      populateUniqueWcagGuidelines();
+  });
+
+  // Event handler for the "search" input field
+  $('#search').on('change', function() {
+      var selectedBarrierSummary = $(this).val();
+      autofillFields(selectedBarrierSummary);
+  });
+
+  // Clear suggestions when an option is clicked
+  $('#result').on('click', 'option', function() {
+      $("#result").html('');
+  });
+});
+ 
+//  ------------------------   ends here  ------------------------  // 
 
 
 // Dark Mode Button Click Handler
@@ -70,6 +148,10 @@ function clearFields() {
 document.getElementById("clearFieldsButton").addEventListener("click", clearFields);
 
 
+
+
+// ------------------------ Script for submitting for and showing success ,Message ---------------------------------- // 
+
 const scriptURL = 'https://script.google.com/macros/s/AKfycbx2AzoN4GPBvsD8F1VUNWU99xZyeIm212UwkBclRa4MtdicK2j7rr38XHtRGadq3Ho3/exec'
 const form = document.forms['audit-form']
 
@@ -98,11 +180,11 @@ form.addEventListener('submit', e => {
 });
 
 
+// ------------------------------------ End ----------------------------------- //
 
 
 
-
-//bottom to top / top to bottom button
+//bottom to top / top to bottom button 
 var scrollButton = document.getElementById("scrollButton");
 var scrollingToTop = true;
 
@@ -129,4 +211,5 @@ scrollButton.addEventListener("click", function () {
   }
   scrollingToTop = !scrollingToTop; 
 });
+
 
