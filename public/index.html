@@ -25,23 +25,32 @@
 
     <form method="post " id="myForm" name="audit-form" >
         
+    <br>
+    <label for="WCAG Guideline">WCAG Guideline</label><br>
+    <input type="text" id="WcagGuideline" name="WcagGuideline" placeholder="Ex: 2.4.7 Focus Visible (Level AA)" 
+    class="form-control">
    
     <label for="Barrier Summary">Barrier Summary</label>
-    <input list="result" type="text" name="BarrierSummary" id="search" placeholder="start typing to autofill" class="form-control" />
+    <input list="result" type="text" name="BarrierSummary" id="search" placeholder="start typing to autofill" class="form-control" required/>
     
     <!-- Use datalist for suggestions -->
     <datalist id="result">
     </datalist>
 
+
+        
     <label for="Barrier Type">Barrier Type</label><br>
-    <select id="BarrierType" name="BarrierType" class="form-control">
+    <select id="BarrierType" name="BarrierType" class="form-control" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="Global">Global</option>
         <option value="Unique">Unique</option>
     </select>
+    
 
     <br>
     <label for="Barrier Test">Barrier Test</label><br>
-    <select id="BarrierTest" name="BarrierTest" class="form-control">
+    <select id="BarrierTest" name="BarrierTest" class="form-control" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="Color Contrast">Color Contrast</option>
         <option value="Screen Reader">Screen Reader</option>
         <option value="Magnification">Magnification</option>
@@ -52,34 +61,32 @@
 
     <br>
     <label for="Page Title">Page Title</label><br>
-    <input type="text" id="PageTitle" name="PageTitle" placeholder="Ex: Page Title"  class="form-control">
+    <input type="text" id="PageTitle" name="PageTitle" placeholder="Ex: Page Title"  class="form-control" required>
 
     <br>
     <label for="URL">URL</label><br>
-    <input type="url" id="url" name="URL" placeholder="Ex: Url"  class="form-control">
+    <input type="url" id="url" name="URL" placeholder="Ex: Url"  class="form-control" required>
 
 
     <br>
     <label for="Code Snippet">Code Snippet</label><br>
-    <textarea id="CodeSnippet" name="CodeSnippet" placeholder="Paste code snippet here"  class="form-control"></textarea>
+    <textarea id="CodeSnippet" name="CodeSnippet" placeholder="Paste code snippet here"  class="form-control" required></textarea>
 
     <br>
     <label for="Severity">Severity</label><br>
-    <select id="Severity" name="Severity" class="form-control">
+    <select id="Severity" name="Severity" class="form-control" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
         <option value="Advisory">Advisory</option>
     </select>
 
-    <br>
-    <label for="WCAG Guideline">WCAG Guideline</label><br>
-    <input type="text" id="WcagGuideline" name="WcagGuideline" placeholder="Ex: 2.4.7 Focus Visible (Level AA)" 
-        class="form-control">
 
     <br>
-    <label for="Section">Section</label><br>
-    <select id="Section" name="Section" class="form-control">
+    <label for="Section">Section 508</label><br>
+    <select id="Section" name="Section" class="form-control" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="Pass">Pass</option>
         <option value="Fail">Fail</option>
         <option value="NA">NA</option>
@@ -87,7 +94,8 @@
 
     <br>
     <label for="Platform">Platform</label><br>
-    <select id="Platform" name="Platform" class="form-control">
+    <select id="Platform" name="Platform" class="form-control" required>
+        <option value="" disabled selected>Select an option</option>
         <option value="Win">Win</option>
         <option value="Win/ Mac">Win/ Mac</option>
         <option value="Win/ Mac/ iOS/ Android">Win/ Mac/ iOS/ Android</option>
@@ -102,26 +110,26 @@
     <br>
     <label for="Users Affected">Users Affected</label><br>
     <input type="text" id="UsersAffected" name="UsersAffected" placeholder="Ex: Blind" 
-        class="form-control">
+        class="form-control" required>
 
     <br>
     <label for="Steps to Reproduce">Steps to Reproduce</label><br>
     <textarea type="text" id="StepstoReproduce" name="StepstoReproduce" placeholder="Give Steps" 
-        class="form-control"></textarea>
+        class="form-control" required></textarea>
 
     <br>
     <label for="Actual Result">Actual Result</label><br>
-    <textarea id="ActualResult" name="ActualResult" placeholder="Write Actual result"  class="form-control"></textarea>
+    <textarea id="ActualResult" name="ActualResult" placeholder="Write Actual result"  class="form-control" required></textarea>
 
     <br>
     <label for="Expected Result">Expected Result</label><br>
     <textarea id="ExpectedResult" name="ExpectedResult" placeholder="Write Expected result" 
-        class="form-control"></textarea>
+        class="form-control" required></textarea>
 
     <br>
     <label for="Recommendation">Recommendation</label><br>
     <textarea id="Recommendation" name="Recommendation" placeholder="Write Recommendation" 
-        class="form-control"></textarea>
+        class="form-control" required></textarea>
 
     <br>
     <label for="Instances/ Observation">Instances/ Observation</label><br>
@@ -129,15 +137,18 @@
     
 
     <br>
-    <label for="ScreenshotVideo">Screenshot/Video</label><br>
-    <input type="file" id="ScreenshotVideo" name="ScreenshotVideo" accept="image/*, video/*" class="form-control">
+
+    <label for="ScreencastURL">Video (Screencast URL)</label><br>
+    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control">
+
 
     <br>
     <label for="ScreencastURL">Screenshot (Screencast URL)</label><br>
-    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control">
+    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control" required>
 
     <label for="BarrierSource">Barrier Source</label><br>
     <select id="BarrierSource" name="BarrierSource" class="form-control">
+        <option value="" disabled selected>Select an option</option>
         <option value="3rd Party">3rd Party</option>
         <option value="Native">Native</option>
     </select>
