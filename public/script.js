@@ -40,6 +40,7 @@ $(document).ready(function(){
 // Dark Mode Button Click Handler
 $('#darkModeButton').click(function () {
     $('body').toggleClass('dark-mode');
+    $('#darkModeButton').attr("aria-pressed", $('body').hasClass("dark-mode"));
     });
 
 
