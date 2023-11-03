@@ -1,5 +1,12 @@
 
 $(document).ready(function(){
+  // Function to clear all input fields
+  $("#clearFieldsButton").on('click', () => {
+    document.forms[0].reset();
+    let clearToastEle=$("#form-clear-toast");
+    let clearToast=new bootstrap.Toast(clearToastEle);
+    clearToast.show();
+    }); 
     $.ajaxSetup({ cache: false });
     $('#search').on('input', function(e){
         var searchField = $('#search').val();
@@ -44,31 +51,7 @@ $('#darkModeButton').click(function () {
     });
 
 
-// Function to clear all input fields
-function clearFields() {
-  document.getElementById("search").value = "";
-  document.getElementById("BarrierType").value = "";
-  document.getElementById("BarrierTest").value = "";
-  document.getElementById("PageTitle").value = "";
-  document.getElementById("url").value = "";
-  document.getElementById("CodeSnippet").value = "";
-  document.getElementById("Severity").value = "";
-  document.getElementById("WcagGuideline").value = "";
-  document.getElementById("Section").value = "";
-  document.getElementById("Platform").value = "";
-  document.getElementById("UsersAffected").value = "";
-  document.getElementById("StepstoReproduce").value = "";
-  document.getElementById("ActualResult").value = "";
-  document.getElementById("ExpectedResult").value = "";
-  document.getElementById("Recommendation").value = "";
-  document.getElementById("Observation").value = "";
-  document.getElementById("ScreenshotVideo").value = "";
-  document.getElementById("ScreencastURL").value = "";
-  document.getElementById("BarrierSource").value = "";
-}
 
-// function to the "Clear All Fields" button
-document.getElementById("clearFieldsButton").addEventListener("click", clearFields);
 
 
 const scriptURL = 'https://script.google.com/macros/s/AKfycbx2AzoN4GPBvsD8F1VUNWU99xZyeIm212UwkBclRa4MtdicK2j7rr38XHtRGadq3Ho3/exec'
