@@ -160,3 +160,12 @@ textarea.form-control {
 }
 
 
+/* Style placeholders with light text and reduced opacity */
+input[type="text"]::placeholder,
+input[type="url"]::placeholder,
+input[type="date"]::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: #999; /* Light color */
+  opacity: 0.6; /* Adjust the opacity level as needed (0.0 - 1.0) */
+}
