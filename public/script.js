@@ -1,10 +1,41 @@
 // ------------------------ Filtering and autofilling code starts from here ------------------------ //
 
+// Define variables to store the selected WCAG guideline and Barrier Summary
+var selectedGuideline = '';
+var selectedBarrierSummary = '';
+
+
 $(document).ready(function() {
   $.ajaxSetup({ cache: false });
 
   // Define a variable to store the JSON data
   var jsonData = null;
+
+  
+
+    // Event handler for the "WCAG Guideline" input field
+  $('#WcagGuideline').on('change', function() {
+    var selectedGuideline = $(this).val();
+    filterBarrierSummaries(selectedGuideline);
+  });
+
+  // Add an event handler for clearing the form when WCAG Guideline is cleared
+  $('#WcagGuideline').on('input', function() {
+    var selectedGuideline = $(this).val();
+    if (selectedGuideline === "") {
+        clearForm();
+    }
+  });
+
+  // Function to clear all form fields
+  function clearForm() {
+    // Reset all form fields to their default or empty values
+    $('#myForm')[0].reset();
+    // You may also want to clear any other elements, like the result dropdown, if needed
+    $('#result').html('');
+  }
+
+
 
   // Function to filter Barrier Summaries based on the selected WCAG guideline
   function filterBarrierSummaries(selectedGuideline) {
@@ -34,18 +65,53 @@ $(document).ready(function() {
       populateUniqueWcagGuidelines();
   });
 
+  
+
   // Event handler for the "search" input field
   $('#search').on('input', function(e) {
       var searchField = $(this).val();
       var expression = new RegExp(searchField, "i");
       $('#result').html('');
       jsonData.forEach((value) => {
-          if (value.Barrier_Summary.search(expression) !== -1) {
+          if (value.Barrier_Summary.search(expression) !== -1 ) {
               $('#result').append(`<option value="${value.Barrier_Summary}" class="list-group-item link-class">${value.Barrier_Summary}</option>`);
-              $('#WcagGuideline').val(value.WCAG_Guideline);
+              // $('#WcagGuideline').val(value.WCAG_Guideline);
+              selectedWcagGuideline = value.WCAG_Guideline; // Store the selected WCAG guideline
+
           }
       });
   });
+
+
+
+  // Add an event handler for clearing the Barrier Summary field
+  $('#search').on('input', function() {
+    var searchField = $(this).val();
+    if (searchField === "") {
+        clearBarrierSummary();
+    }
+});
+
+// Function to clear the Barrier Summary field
+function clearBarrierSummary() {
+    selectedBarrierSummary = ''; // Clear the stored Barrier Summary
+}
+
+// Function to clear all form fields
+function clearForm() {
+    // Reset all form fields to their default or empty values
+    $('#myForm')[0].reset();
+    // Restore the selected WCAG guideline
+    $('#WcagGuideline').val(selectedGuideline);
+    // You may also want to restore the selected Barrier Summary
+    $('#search').val(selectedBarrierSummary);
+    // You may also want to clear any other elements, like the result dropdown, if needed
+    $('#result').html('');
+}
+
+
+
+
 
   // Event handler for the "WcagGuideline" input field
   $('#WcagGuideline').on('change', function() {
