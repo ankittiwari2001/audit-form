@@ -23,38 +23,53 @@
     <h3 align="center">Audit report form</h3>
     <br /><br />
     
-    <form method="post " id="myForm" name="audit-form" >
+    <form method="post " id="myForm" name="audit-form" class="was-validated">
         
        
         <br>
-        <label for="WCAG Guideline">WCAG Guideline</label><br>
-        <input list="wcagOptions" type="text" id="WcagGuideline" name="WcagGuideline" placeholder="Ex: 2.4.7 Focus Visible (Level AA)" class="form-control" required>
-
-        <datalist id="wcagOptions">
+            <div class="col-md-4">
+    <label for="WcagGuideline" class="form-label">WCAG Guideline</label><br>
+    <input list="wcagOptions" type="text" id="WcagGuideline" name="WcagGuideline" placeholder="" 
+        class="form-control" required>
+                <datalist id="wcagOptions">
         </datalist>
+            <div class="invalid-feedback" id="invalid-wcag-msg" role="alert">
+        Example: 2.4.7 Focus Visible (Level AA)
+      </div>
+   </div>
 
-
-        <label for="Barrier Summary">Barrier Summary</label>
-        <input list="result" type="text" name="BarrierSummary" id="search" placeholder="start typing to autofill" class="form-control" required/>
-        
+        <div class="col-md-4">
+    <label for="search" class="form-label" id="lbl-bsummary">Barrier Summary *</label>
+    <input list="result" type="text" name="BarrierSummary" id="search" class="form-control" aria-describedby="search-validity" role="combobox" aria-autocomplete="list" aria-controls="result" required>
         <!-- Use datalist for suggestions -->
-        <datalist id="result">
-        </datalist>
+    <datalist id="result" aria-labelledby="lbl-bsummary" role="listbox">
+    </datalist>
+
+    <div class="invalid-feedback" id="search-validity" role="alert">
+        start typing to autofill
+      </div>
+</div>
         
         
         
-        <label for="Barrier Type">Barrier Type</label><br>
-        <select id="BarrierType" name="BarrierType" class="form-control" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="Global">Global</option>
-            <option value="Unique">Unique</option>
-        </select>
+<div class="col-md-4">
+    <label for="BarrierType" class="form-label">Barrier Type *</label>
+    <select id="BarrierType" name="BarrierType" class="form-control" aria-describedby="invalid-bt-msg" required>
+        <option value="" invalid>Select Barrier type</option>
+        <option value="Global">Global</option>
+        <option value="Unique">Unique</option>
+    </select>
+        <div class="invalid-feedback" id="invalid-bt-msg" role="alert">
+        Select one of the barrier type
+      </div>
+</div>
         
         
         <br>
-    <label for="Barrier Test">Barrier Test</label><br>
-    <select id="BarrierTest" name="BarrierTest" class="form-control" required>
-        <option value="" disabled selected>Select an option</option>
+    <div class="col-md-4">
+    <label for="BarrierTest" class="form-label">Barrier Test *</label>
+    <select id="BarrierTest" name="BarrierTest" class="form-control" aria-describedby="invalid-bte-msg" required>
+        <option value="">Select a barrier test</option>
         <option value="Color Contrast">Color Contrast</option>
         <option value="Screen Reader">Screen Reader</option>
         <option value="Magnification">Magnification</option>
@@ -62,44 +77,67 @@
         <option value="Gesture">Gesture</option>
         <option value="Inversion">Inversion</option>
     </select>
+            <div class="invalid-feedback" id="invalid-bte-msg" role="alert">
+        Select one of the barrier test
+      </div>
+</div>
     
     <br>
-    <label for="Page Title">Page Title</label><br>
-    <input type="text" id="PageTitle" name="PageTitle" placeholder="Ex: Page Title"  class="form-control" required>
-    
+    <div class="col-md-4">
+    <label for="PageTitle" class="form-label">Page Title *</label>
+    <input type="text" id="PageTitle" name="PageTitle" class="form-control" required aria-describedby="invalid-title-msg">
+    <div class="invalid-feedback" id="invalid-title-msg" role="alert">
+        enter the title of the page. Example:<br>home - advancebytez
+    </div>
+</div>
     <br>
-    <label for="URL">URL</label><br>
-    <input type="url" id="url" name="URL" placeholder="Ex: Url"  class="form-control" required>
-    
-    
+    <div class="col-md-4">
+    <label for="URL" class="form-label">URL</label><br>
+    <input type="url" id="URL" name="URL" class="form-control" aria-describedby="invalid-url-msg" required>
+    <div class="invalid-feedback" id="invalid-url-msg" role="alert">
+Enter URL of the audit page. example: https://www.advancedbytez.com
+    </div>
+</div>
     <br>
-    <label for="Code Snippet">Code Snippet</label><br>
-    <textarea id="CodeSnippet" name="CodeSnippet" placeholder="Paste code snippet here"  class="form-control" required></textarea>
-    
+    <div class="col-md-4">
+    <label for="CodeSnippet" class="form-label">Code Snippet</label><br aria-describedby="invalid-code-msg">
+    <textarea id="CodeSnippet" name="CodeSnippet" class="form-control" required aria-describedby="invalid-code-msg"></textarea>
+    <div class="invalid-feedback" id="invalid-code-msg" role="alert">
+        Paste code snippet here
+            </div>
+      </div>
     <br>
-    <label for="Severity">Severity</label><br>
+    <div class="col-md-4">
+    <label for="Severity" class="form-label">Severity</label><br>
     <select id="Severity" name="Severity" class="form-control" required>
-        <option value="" disabled selected>Select an option</option>
+                <option value="">Select a Severity/option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
         <option value="Advisory">Advisory</option>
     </select>
-    
-    
+        <div class="invalid-feedback" id="invalid-severity-msg" role="alert">
+        Select one of the severity
+            </div>
+</div>
     <br>
-    <label for="Section">Section 508</label><br>
-    <select id="Section" name="Section" class="form-control" required>
-        <option value="" disabled selected>Select an option</option>
+    <div class="col-md-4">
+    <label for="Section" class="form-label">Section 508</label><br>
+    <select id="Section" name="Section" class="form-control" aria-describedby="invalid-section-msg" required>
+                <option value="">Select section 508 result</option>
         <option value="Pass">Pass</option>
         <option value="Fail">Fail</option>
         <option value="NA">NA</option>
     </select>
-    
+            <div class="invalid-feedback" id="invalid-section-msg" role="alert">
+        Select valid section 508 final result
+            </div>
+</div>
     <br>
-    <label for="Platform">Platform</label><br>
+    <div class="col-md-4">
+    <label for="Platform" class="form-label">Platform</label><br>
     <select id="Platform" name="Platform" class="form-control" required>
-        <option value="" disabled selected>Select an option</option>
+        <option value="">Select test platform</option>"
         <option value="Win">Win</option>
         <option value="Win/ Mac">Win/ Mac</option>
         <option value="Win/ Mac/ iOS/ Android">Win/ Mac/ iOS/ Android</option>
@@ -110,49 +148,82 @@
         <option value="Win/ iOS">Win/ iOS</option>
         <option value="Win/ Android">Win/ Android</option>
     </select>
-    
+                <div class="invalid-feedback" id="invalid-platform-msg" role="alert">
+        Select valid test platform
+            </div>
+</div>
     <br>
-    <label for="Users Affected">Users Affected</label><br>
-    <input type="text" id="UsersAffected" name="UsersAffected" placeholder="Ex: Blind" 
-    class="form-control" required>
+    <div class="col-md-4">
+            <label for="UsersAffected" class="form-label">Users Affected</label>
+        <input type="text" id="UsersAffected" name="UsersAffected" class="form-control" required aria-describedby="invalid-users-msg">
+        <div class="invalid-feedback" id="invalid-users-msg" role="alert">
+            Example: Blind                </div>          
+    </div>
+    <br>
+    <div class="col-md-4">
+    <label for="StepstoReproduce" class="form-label">Steps to Reproduce</label><br>
+    <textarea type="text" id="StepstoReproduce" name="StepstoReproduce" class="form-control" required aria-describedby="invalid-steps-msg"></textarea>
+        <div class="invalid-feedback" id="invalid-steps-msg" role="alert">
+            Give Steps</div>          
+    </div>
+    <br>
+    <div class="col-md-4">
+    <label for="ActualResult" class="form-label">Actual Result</label>
+    <textarea id="ActualResult" name="ActualResult" class="form-control" required aria-describedby="invalid-actual-msg"></textarea>
+    <div class="invalid-feedback" id="invalid-actual-msg" role="alert">
+        Write Actual result</div>          
+</div>
+    <div class="col-md-4">
+    <label for="ExpectedResult" class="form-label">Expected Result</label>
+    <textarea id="ExpectedResult" name="ExpectedResult" class="form-control" required aria-describedby="invalid-expected-msg"></textarea>
+    <div class="invalid-feedback" id="invalid-expected-msg" role="alert">
+        Write expected result</div>          
+</div>
 
     <br>
-    <label for="Steps to Reproduce">Steps to Reproduce</label><br>
-    <textarea type="text" id="StepstoReproduce" name="StepstoReproduce" placeholder="Give Steps" 
-    class="form-control" required></textarea>
-    
+    <div class="col-md-4">
+    <label for="Recommendation" class="form-label">Recommendation</label><br>
+    <textarea id="Recommendation" name="Recommendation" class="form-control" required aria-describedby="invalid-recommendation-msg"></textarea>
+        <div class="invalid-feedback" id="invalid-recommendation-msg" role="alert">
+            Write Recommendation</div>          
+       </div>
     <br>
-    <label for="Actual Result">Actual Result</label><br>
-    <textarea id="ActualResult" name="ActualResult" placeholder="Write Actual result"  class="form-control" required></textarea>
-    
-    <br>
-    <label for="Expected Result">Expected Result</label><br>
-    <textarea id="ExpectedResult" name="ExpectedResult" placeholder="Write Expected result" 
-    class="form-control" required></textarea>
-    
-    <br>
-    <label for="Recommendation">Recommendation</label><br>
-    <textarea id="Recommendation" name="Recommendation" placeholder="Write Recommendation" 
-    class="form-control" required></textarea>
-    
-    <br>
-    <label for="Instances/ Observation">Instances/ Observation</label><br>
-    <textarea id="Observation" name="Observation" placeholder="Mention instances where the issue occurs more than once"  class="form-control"></textarea>
-    
-    <br>
-    <label for="ScreencastURL">Screenshot (Screencast URL)</label><br>
-    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control" required>
+    <div class="col-md-4">
+    <label for="Observation" class="form-label">Instances/ Observation (Optional)</label><br>
+    <textarea id="Observation" name="Observation" placeholder="Mention instances where the issue occurs more than once"  class="form-control" aria-describedby="invalid-instances-msg"></textarea>
+    <div class="valid-feedback" id="invalid-instances-msg">
+        Mention instances where the issue occurs more than once    
+    </div>          
+</div>
 
     <br>
-    <label for="ScreencastURL">Video (Screencast URL)</label><br>
-    <input type="url" id="ScreencastURL" name="ScreencastURL" placeholder="Ex: URL to screencast" class="form-control">
-        
+    <div class="col-md-4">
+    <label for="ScreencastURL" class="form-label">Screenshot (Screencast URL)</label><br>
+    <input type="url" id="ScreencastURL" name="ScreencastURL" class="form-control" required>
+        <div class="invalid-feedback" id="invalid-screenshot-msg" role="alert">
+        Write valid screenshot URL</div>          
+</div>
+    <div class="col-md-4">
+    <label for="ScreencastURL" class="form-label">Video (Screencast URL) (Optional)</label><br>
+    <input type="url" id="ScreencastURL" name="ScreencastURL" class="form-control" aria-describedby="valid-video-msg">
+        <div class="valid-feedback" id="valid-video-msg" role="alert">
+        Write valid video URL</div>          
+</div>
+
+<div class="col-md-4">
     <label for="BarrierSource">Barrier Source</label><br>
-    <select id="BarrierSource" name="BarrierSource" class="form-control">
-        <option value="" disabled selected>Select an option</option>
+    <select id="BarrierSource" name="BarrierSource" class="form-control" required aria-describedby="invalid-barriersource-msg">
+                <option value="">Select an option</option>
         <option value="3rd Party">3rd Party</option>
         <option value="Native">Native</option>
     </select>
+        <div class="invalid-feedback" id="invalid-barriersource-msg" role="alert">
+        select valid source of barrier
+    </div>          
+</div>
+
+</div>
+
     
     
     
