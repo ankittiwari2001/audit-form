@@ -212,3 +212,9 @@ datalist option {
   border: 1px solid #ccc; /* Add a border for better separation */
   background: white; /* Set the background color of the results */
 }
+
+.required-icon {
+  color: red; /* Change the color to your preference */
+  margin-right: 5px; /* Adjust the spacing between the icon and the label */
+  font-size: 14px; /* Adjust the font size of the icon */
+}
