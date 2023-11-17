@@ -1,6 +1,6 @@
 // ------------------------ Filtering and autofilling code starts from here ------------------------ //
 
-// Define variables to store the selected WCAG guideline and Barrier Summary
+// Defined variables to store the selected WCAG guideline and Barrier Summary
 var selectedGuideline = '';
 var selectedBarrierSummary = '';
 
@@ -8,7 +8,7 @@ var selectedBarrierSummary = '';
 $(document).ready(function() {
   $.ajaxSetup({ cache: false });
 
-  // Define a variable to store the JSON data
+  // Defined a variable to store the JSON data
   var jsonData = null;
 
   
@@ -19,7 +19,7 @@ $(document).ready(function() {
     filterBarrierSummaries(selectedGuideline);
   });
 
-  // Add an event handler for clearing the form when WCAG Guideline is cleared
+  // Added an event handler for clearing the form when WCAG Guideline is cleared
   $('#WcagGuideline').on('input', function() {
     var selectedGuideline = $(this).val();
     if (selectedGuideline === "") {
@@ -31,7 +31,7 @@ $(document).ready(function() {
   function clearForm() {
     // Reset all form fields to their default or empty values
     $('#myForm')[0].reset();
-    // You may also want to clear any other elements, like the result dropdown, if needed
+    // clear any other elements, like the result dropdown, if needed
     $('#result').html('');
   }
 
@@ -84,7 +84,7 @@ $(document).ready(function() {
 
 
 
-  // Add an event handler for clearing the Barrier Summary field
+  // Added an event handler for clearing the Barrier Summary field
   $('#search').on('input', function() {
     var searchField = $(this).val();
     if (searchField === "") {
@@ -94,7 +94,7 @@ $(document).ready(function() {
 
 // Function to clear the Barrier Summary field
 function clearBarrierSummary() {
-    selectedBarrierSummary = ''; // Clear the stored Barrier Summary
+    selectedBarrierSummary = ''; 
 }
 
 // Function to clear all form fields
@@ -103,9 +103,9 @@ function clearForm() {
     $('#myForm')[0].reset();
     // Restore the selected WCAG guideline
     $('#WcagGuideline').val(selectedGuideline);
-    // You may also want to restore the selected Barrier Summary
+    // restore the selected Barrier Summary
     $('#search').val(selectedBarrierSummary);
-    // You may also want to clear any other elements, like the result dropdown, if needed
+    //  clear any other elements, like the result dropdown, if needed
     $('#result').html('');
 }
 
@@ -128,7 +128,7 @@ function clearForm() {
 $(document).ready(function() {
   $.ajaxSetup({ cache: false });
 
-  // Define a variable to store the JSON data
+  // Defined a variable to store the JSON data
   var jsonData = null;
 
   // Function to populate unique WCAG guideline options
@@ -182,6 +182,7 @@ $(document).ready(function() {
 //  ------------------------   ends here  ------------------------  // 
 
 
+
 // Dark Mode Button Click Handler
 $('#darkModeButton').click(function () {
     $('body').toggleClass('dark-mode');
@@ -191,13 +192,29 @@ $('#darkModeButton').click(function () {
 
 
 
-
-
-
 // ------------------------ Script for submitting for and showing success ,Message ---------------------------------- // 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbx2AzoN4GPBvsD8F1VUNWU99xZyeIm212UwkBclRa4MtdicK2j7rr38XHtRGadq3Ho3/exec'
-const form = document.forms['audit-form']
+
+// base URL for Google Apps Script
+const baseUrl = 'https://script.google.com/macros/s/';
+
+// mapping of form names to their respective script IDs
+const scriptIds = {
+  'form': 'AKfycby7WKyeLp-IMQF2TCtPS9XywqJes-heXxhuZQVQfRG9LCSH2EkvXzR2qQ7UKeoHIw_5mA',
+  'form-1': 'AKfycbyUPwhGO3YE6lcqn6YizqbHsBKRHjpm8U7LAUBWnjor0XySRHeT_sYXAUw7FAd1eO9n',
+  'form-2': 'AKfycbxUdvmM-lj-uQNX8c7cM_boyqjgihga12iXjutk5Nrw0bgBIFJQ5oBWssILSKsaBbWFcA', // added for advancedbyrtez 
+  
+};
+
+const pathSegments = window.location.pathname.split('/').filter(segment => segment); 
+const formName = pathSegments[pathSegments.length - 1];
+
+
+// Construct the script URL based on the form name
+const scriptURL = baseUrl + scriptIds[formName] + '/exec';
+
+const form = document.forms['audit-form'];
+
 
 form.addEventListener('submit', e => {
   e.preventDefault();
@@ -222,6 +239,12 @@ form.addEventListener('submit', e => {
       console.error('Error!', error.message);
     });
 });
+
+
+console.log('Script URL:', scriptURL);
+console.log('Path Segments:', pathSegments);
+;
+
 
 
 // ------------------------------------ End ----------------------------------- //

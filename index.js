@@ -97,10 +97,10 @@ async function loadDataAndSaveToJson(auth) {
       return;
     }
 
-    // Create an array to store the data
+    // Created an array to store the data
     const data = [];
 
-    // Iterate through the rows and convert them into objects
+    // Iterating through the rows and convert them into objects
     rows.forEach((row) => {
       const rowData = {
         Barrier_Type: row[0],
@@ -115,13 +115,13 @@ async function loadDataAndSaveToJson(auth) {
         Expected_Result: row[13],
         Recommendation: row[14], 
 
-        // Add other properties as needed
+        
       };
 
       data.push(rowData);
     });
 
-    // Save the fetched data to WCAG-issue-Library.json
+    // Saving the fetched data to WCAG-issue-Library.json
     await fs.writeFile(JSON_DATA_FILE, JSON.stringify(data, null, 2));
 
     console.log('Data loaded and saved to', JSON_DATA_FILE);
@@ -140,14 +140,15 @@ authorize()
 
 
 const app = express();
-const port = process.env.PORT || 3000; // You can change the port if needed
+const port = process.env.PORT || 3000; 
 
-// Serve static files (CSS, images, etc.) from a "public" directory
+// Serveing static files from a "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Define a route to serve your HTML file
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+
+// Define a route to serve your HTML file for /form, /anki, and /snoop
+app.get(['/form', '/form-1', '/form-2'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Serve WCAG-issue-Library.json from the "data" directory
