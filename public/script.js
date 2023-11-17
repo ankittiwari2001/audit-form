@@ -241,9 +241,9 @@ form.addEventListener('submit', e => {
 });
 
 
-console.log('Script URL:', scriptURL);
-console.log('Path Segments:', pathSegments);
-;
+// console.log('Script URL:', scriptURL);
+// console.log('Path Segments:', pathSegments);
+// ;
 
 
 
